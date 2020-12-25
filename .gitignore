@@ -7,7 +7,6 @@
 assets/*
 !assets/src
 node_modules/
-package-lock.json
 local.json
 
 # ignore OS generated files
