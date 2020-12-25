@@ -37,14 +37,14 @@ export const reload = done => {
 export const clean = () => del([ ]);
 
 export const styles = () => {
-	return src( 'assets/src/scss/theme.scss' )
+	return src( 'assets/src/scss/main.scss' )
 		.pipe( gulpif( ! PRODUCTION, sourcemaps.init() ) )
 		.pipe( sass().on( 'error', sass.logError ) )
 		.pipe( postcss([ tailwindcss( './tailwind.config.js' ) ]) )
 		.pipe( gulpif( PRODUCTION, postcss([ autoprefixer ]) ) )
 		.pipe( gulpif( PRODUCTION, cleanCss({compatibility: 'ie8'}) ) )
 		.pipe( gulpif( ! PRODUCTION, sourcemaps.write() ) )
-		.pipe( dest( 'assets/css' ) )
+		.pipe( dest( 'assets/build/css' ) )
 		.pipe( server.stream() );
 };
 
@@ -60,7 +60,7 @@ export const copy = () => {
 };
 
 export const scripts = () => {
-	return src([ 'assets/src/js/main.js'])
+	return src([ 'assets/src/js/app.js'])
 		.pipe( named() )
 		.pipe( webpack({
 			module: {
@@ -85,7 +85,7 @@ export const scripts = () => {
 				jquery: 'jQuery'
 			}
 		}) )
-		.pipe( dest( 'assets/js' ) );
+		.pipe( dest( 'assets/build/js' ) );
 };
 
 export const compress = () => {
@@ -102,8 +102,11 @@ export const compress = () => {
 		'!.gitignore',
 		'!gulpfile.babel.js',
 		'!tailwind.config.js',
+		'!phpcs.xml.dist',
 		'!package.json',
 		'!package-lock.json',
+		'!composer.json',
+		'!comoser.lock',
 		'!local.json',
 		'!local.example.json',
 
