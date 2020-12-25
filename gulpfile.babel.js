@@ -19,7 +19,7 @@ import wpPot from 'gulp-wp-pot';
 
 const PRODUCTION = yargs.argv.prod;
 const server = browserSync.create();
-const local = require( './local.json' )
+const local = require( './local.json' );
 
 export const serve = done => {
 	server.init({
