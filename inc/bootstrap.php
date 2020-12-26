@@ -5,7 +5,7 @@
  * @package Árbol
  */
 
-class bootstapSite extends Timber\Site {
+class bootstrapSite extends Timber\Site {
     public function __construct() {
         add_theme_support( 'post-thumbnails' );
         add_theme_support( 'menus' );
