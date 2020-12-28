@@ -68,10 +68,10 @@ function arbol_assets() {
 	wp_enqueue_style( 'arbol-style', get_stylesheet_uri() );
 
 	// Loads bundled theme CSS.
-	wp_enqueue_style( 'arbol-theme-styles', get_template_directory_uri() . '/assets/build/css/main.css', array(), '1.0.3', 'all' );
+	wp_enqueue_style( 'arbol-theme-styles', get_template_directory_uri() . '/assets/build/css/main.css', array(), '0.5.0', 'all' );
 
 	// Loads bundled theme JS.
-	wp_enqueue_script('arbol-custom-scripts', get_template_directory_uri() . '/assets/build/js/main.js', array('customize-preview'), '1.0.3', true );
+	wp_enqueue_script('arbol-custom-scripts', get_template_directory_uri() . '/assets/build/js/main.js', array('customize-preview'), '0.5.0', true );
 
 	// Comment reply script.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
